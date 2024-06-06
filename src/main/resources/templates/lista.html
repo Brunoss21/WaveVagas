@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Lista de Vagas - Wave</title>
+	<style>
+		.bg-color-1 {
+			background-color: #ffffff;
+		}
+		.bg-color-2 {
+			background-color: #f9fafb; 
+		}
+
+		th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(250, 244, 244, 0.952); /* Ensure background is not transparent */
+			
+        }
+
+	</style>
+</head>
+<body class="bg-gray-200">
+	<header class=" bg-blue-400 text-white py-4">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-bold"><a th:href="@{/}">Wave Vagas</a></h1>
+        </div>
+    </header>
+	<main>
+		<div class="flex justify-center items-start h-screen">
+			<table class="w-8/12">
+				<thead class="bg-gray-50 border-b-2 border-gray-200">
+					<tr>
+						<th class="p-3 text-sm font-semibold tracking-wide text-center"><b>Id.</b></th>
+						<th class="p-3 text-sm font-semibold tracking-wide text-center"><b>Título </b> </th>
+						<th class="p-3 text-sm font-semibold tracking-wide text-center"><b>Descrição</b> </th>
+						<th class="p-3 text-sm font-semibold tracking-wide text-center"><b>Inscrições até: </b> </th>
+					</tr>
+				</thead>
+				<tbody class="border-table">
+					<tr th:each="vgi, iterStat : ${lista}" th:class="${iterStat.index % 2 == 0 ? 'bg-color-1' : 'bg-color-2'}">
+						<td class="p-3 text-sm font-light tracking-wide text-center" th:text="${vgi.id}"></td>
+						<td class="p-3 text-sm font-light tracking-wide text-center" th:text="${vgi.titulo}"></td>
+						<td class="p-3 text-sm font-light tracking-wide text-center" th:text="${vgi.descricao}"></td>
+						<td class="p-3 text-sm font-light tracking-wide text-center" th:text="${#dates.format(vgi.dataPublic, 'dd/MM/yyyy')}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</main> 
+</body>
+</html>
