@@ -46,4 +46,9 @@ public class indexController {
         model.addAttribute("lista", lista);
         return "lista";
     }
+
+    @GetMapping("/recrutador")
+    public String recrutador(){
+        return "recrutador";
+    }
 }
