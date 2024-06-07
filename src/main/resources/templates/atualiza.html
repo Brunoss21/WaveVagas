@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" th:action="@{'/atualizar/' + ${id}}" method=post th:object="${vaga}">
+    	Titulo: <input type="text" th:field="*{nome}"><br>
+    	<input type="submit" value="Editar">
+    </form> 
+    
+</body>
+</html>

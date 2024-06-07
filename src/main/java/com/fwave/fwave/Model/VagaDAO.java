@@ -39,7 +39,23 @@ public class VagaDAO {
     	return jdbc.queryForList(sql);
     }
 
+    public List<Map<String,Object>> obterVaga(int id){
+        String sql = "SELECT * FROM vaga where id = ?";
+        Object[] obj = new Object[1];
+        obj[0] = id;
+        return jdbc.queryForList(sql, obj);
 
+    }
+
+    public void atualizarVaga(int id, Vaga vgi){
+        String sql = "UPDATE vaga SET titulo = ?," + "descricao = ?," + "dataPublic = ? WHERE id = ?"; 
+        Object[] obj = new Object[4];
+        obj[0] = vgi.getTitulo();
+        obj[1] = vgi.getDescricao();
+        obj[2] = vgi.getDataPublic();
+        obj[3] = id;
+        jdbc.update(sql, obj);
+    }
 
 
     

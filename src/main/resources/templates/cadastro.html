@@ -19,13 +19,14 @@
     </header>
     <main class="flex items-center justify-center min-h-screen">
     <div class="container max-w-md bg-white border-2 rounded p-6 shadow-lg">
+        <h2 class="text-3xl font-bold mb-4 text-center">Cadastre uma nova vaga</h2>
         <form class="max-w-sm mx-auto" action="#" th:action="@{/cadastrar}" method=post th:object="${vaga}">
             <div class="mb-5">
-                <label for="titulo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título da Vaga: </label>
+                <label for="titulo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título: </label>
                <input type="text" id="titulo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required th:field="*{titulo}">
             </div>
             <div class="mb-5">
-                <label for="descricao" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descrição da Vaga:</label>
+                <label for="descricao" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descrição:</label>
                 <textarea id="descricao" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required th:field="*{descricao}"></textarea>
             </div>
             <div class="mb-5">

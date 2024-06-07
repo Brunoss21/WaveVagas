@@ -4,8 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -51,4 +53,29 @@ public class indexController {
     public String recrutador(){
         return "recrutador";
     }
+
+    @GetMapping("/atualizar/{id}")
+    public String atualizar(@PathVariable("id") int id, Model model){
+        VagaService vg = context.getBean(VagaService.class);
+        Map<String,Object> vaga = vg.obterVaga(id).get(0);
+        String titulo = (String) vaga.get("titulo");
+        String descricao = (String) vaga.get("descricao");
+        LocalDate dataPublic = (LocalDate) vaga.get("dataPublic");
+        float salario = (float) vaga.get("salario");
+        model.addAttribute("vaga", new Vaga(titulo,descricao, dataPublic, salario));
+        model.addAttribute("titulo", titulo);
+        model.addAttribute("descricao", descricao);
+        model.addAttribute("dataPublic", dataPublic);
+        model.addAttribute("salario", salario);
+        return "atualiza";
+    }
+
+    @PostMapping("/atualizar/{id}")
+    public String atualizar(@PathVariable("id") int id
+        , Model model
+        , @ModelAttribute Vaga vgi){
+            VagaService vg = context.getBean(VagaService.class);
+            vg.atualizarVaga(id, vgi);
+            return "redirect:/listar";
+        }
 }

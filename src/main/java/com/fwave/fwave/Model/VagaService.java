@@ -19,4 +19,16 @@ public class VagaService {
         return vdao.listarVagas();
     }
     
+    public void atualizarVaga(int id, Vaga vgi){
+        vdao.atualizarVaga(id, vgi);
+    }
+
+    public List<Map<String, Object>> obterVaga(int id){
+        return vdao.obterVaga(id);
+    }
+
+    //public void apagarVaga(int id){
+	//	vdao.apagarVaga(id);
+	//}
+
 }
