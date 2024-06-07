@@ -61,12 +61,10 @@ public class indexController {
         String titulo = (String) vaga.get("titulo");
         String descricao = (String) vaga.get("descricao");
         LocalDate dataPublic = (LocalDate) vaga.get("dataPublic");
-        float salario = (float) vaga.get("salario");
-        model.addAttribute("vaga", new Vaga(titulo,descricao, dataPublic, salario));
+        model.addAttribute("vaga", new Vaga(titulo,descricao, dataPublic));
         model.addAttribute("titulo", titulo);
         model.addAttribute("descricao", descricao);
         model.addAttribute("dataPublic", dataPublic);
-        model.addAttribute("salario", salario);
         return "atualiza";
     }
 

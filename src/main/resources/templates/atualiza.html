@@ -7,7 +7,7 @@
 </head>
 <body>
     <form action="#" th:action="@{'/atualizar/' + ${id}}" method=post th:object="${vaga}">
-    	Titulo: <input type="text" th:field="*{nome}"><br>
+    	Titulo: <input type="text" th:field="*{titulo}"><br>
     	<input type="submit" value="Editar">
     </form> 
     

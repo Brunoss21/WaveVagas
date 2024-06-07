@@ -24,13 +24,12 @@ public class VagaDAO {
     }
 
     public void inserirVaga(Vaga vgi){
-        String sql = "INSERT INTO vaga(titulo, descricao, dataPublic, salario)" +
+        String sql = "INSERT INTO vaga(titulo, descricao, dataPublic)" +
         " VALUEs (?,?,?,?)";
-        Object[] obj = new Object[4];
+        Object[] obj = new Object[3];
         obj[0] = vgi.getTitulo();
         obj[1] = vgi.getDescricao();
         obj[2] = vgi.getDataPublic();
-        obj[3] = vgi.getSalario();
         jdbc.update(sql, obj);
     }
 

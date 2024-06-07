@@ -6,26 +6,24 @@ public class Vaga {
     
     private int id;
     private String titulo, descricao; 
-    private LocalDate dataPublic; 
-    private float salario;
+    private LocalDate dataPublic;
 
     public Vaga(){
 
     }
 
-    public Vaga(String titulo, String descricao, LocalDate dataPublic, float salario){
+    public Vaga(String titulo, String descricao, LocalDate dataPublic){
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataPublic = dataPublic;
-        this.salario = salario;
+       
     }
 
-    public Vaga(int id, String titulo, String descricao, LocalDate dataPublic, float  salario){
+    public Vaga(int id, String titulo, String descricao, LocalDate dataPublic){
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataPublic = dataPublic;
-        this.salario = salario;
     }
 
     public void setId(int id){
@@ -44,10 +42,6 @@ public class Vaga {
         this.dataPublic = dataPublic;
     }
 
-    public void salario(int salario){
-        this.salario = salario;
-    }
-
     public int getId(){
         return id;
     }
@@ -64,7 +58,4 @@ public class Vaga {
         return dataPublic;
     }
 
-    public float  getSalario(){
-        return salario;
-    }
 }
