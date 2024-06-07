@@ -3,13 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Wave Vagas - Editar Vagas</title>
 </head>
 <body>
-    <form action="#" th:action="@{'/atualizar/' + ${id}}" method=post th:object="${vaga}">
-    	Titulo: <input type="text" th:field="*{titulo}"><br>
-    	<input type="submit" value="Editar">
-    </form> 
+    <header class="fixed top-0 left-0 w-full bg-blue-400 text-white py-4">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-bold"><a th:href="@{/}">Wave Vagas</a></h1>
+        </div>
+    </header>
+    <main class="flex items-center justify-center min-h-screen">
+        <div class="container max-w-md bg-white border-2 rounded p-6 shadow-lg">
+            <h2 class="text-3xl font-bold mb-4 text-center">Atualizar vaga</h2>
+            <form class="max-w-sm mx-auto" action="#" th:action="@{'/atualizar/' + ${id}}" method=post th:object="${vaga}">
+                <div class="mb-5">
+                    <label for="titulo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulo:</label>
+                    <input id="titulo" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" th:field="*{titulo}">
+                </div>
+                <div class="mb-5">
+                    <label for="descricao" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descrição: </label>
+                    <textarea id="descricao" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" th:field="*{descricao}"></textarea>
+                </div>
+                <div class="mb-5">
+                    <label for="inscricoes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Inscrições até: </label>
+                    <input type="date" id="inscricoes" class="border" th:field="*{dataPublic}">
+                </div>
+                <input type="submit" value="Editar">
+            </form> 
+
+
+
+        </div>
+        
+
+
+
+
+    </main>
     
 </body>
 </html>
