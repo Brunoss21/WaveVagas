@@ -3,7 +3,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:postgresql://dpg-cperjq7sc6pc73a319ug-a/fwave
+        url: jdbc:postgresql://dpg-cperjq7sc6pc73a319ug-a:5432/fatecjava_3rbg
         username: fatecjava
         password: rD7NIJNpRZhrqK0DkPpOTYTm6DT5wPbV
         driver-class-name: org.postgresql.Driver
