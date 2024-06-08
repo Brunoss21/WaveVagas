@@ -27,8 +27,8 @@ public class VagaService {
         return vdao.obterVaga(id);
     }
 
-    //public void apagarVaga(int id){
-	//	vdao.apagarVaga(id);
-	//}
+    public void apagarVaga(int id){
+		vdao.apagarVaga(id);
+	}
 
 }

@@ -84,4 +84,11 @@ public class indexController {
             vg.atualizarVaga(id, vgi);
             return "redirect:/listar";
         }
+
+    @GetMapping("/deletar/{id}")
+    public String deletar(@PathVariable("id") int id){
+        VagaService vg = context.getBean(VagaService.class);
+        vg.apagarVaga(id);
+        return "sucessodel";
+    }   
 }

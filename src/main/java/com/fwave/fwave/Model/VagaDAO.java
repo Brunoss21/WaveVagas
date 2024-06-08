@@ -25,7 +25,7 @@ public class VagaDAO {
 
     public void inserirVaga(Vaga vgi){
         String sql = "INSERT INTO vaga(titulo, descricao, dataPublic)" +
-        " VALUEs (?,?,?,?)";
+        " VALUEs (?,?,?)";
         Object[] obj = new Object[3];
         obj[0] = vgi.getTitulo();
         obj[1] = vgi.getDescricao();
@@ -55,6 +55,13 @@ public class VagaDAO {
         obj[3] = id;
         jdbc.update(sql, obj);
     }
+
+    public void apagarVaga(int id){
+		String sql = "DELETE FROM vaga WHERE id = ?";
+		Object[] obj = new Object[1];
+		obj[0] = id;
+		jdbc.update(sql, obj);
+	}
 
 
     
