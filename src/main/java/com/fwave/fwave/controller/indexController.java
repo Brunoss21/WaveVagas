@@ -60,7 +60,15 @@ public class indexController {
         Map<String,Object> vaga = vg.obterVaga(id).get(0);
         String titulo = (String) vaga.get("titulo");
         String descricao = (String) vaga.get("descricao");
-        LocalDate dataPublic = (LocalDate) vaga.get("dataPublic");
+        
+        // Converter java.sql.Date para java.time.LocalDate
+        // Também verifica se dataPublic não é nula
+        LocalDate dataPublic = null;
+        if (vaga.get("dataPublic") != null) {
+            java.sql.Date sqlDatePublic = (java.sql.Date) vaga.get("dataPublic");
+            dataPublic = sqlDatePublic.toLocalDate();
+        }
+
         model.addAttribute("vaga", new Vaga(titulo,descricao, dataPublic));
         model.addAttribute("titulo", titulo);
         model.addAttribute("descricao", descricao);
