@@ -7,12 +7,11 @@ COPY pom.xml .
 COPY src ./src
 
 COPY mvnw .
+COPY .mvn .mvn
 
-COPY .mvn .mvn .
+RUN chmod +x mvnw
 
-RUN chmod 777 mvnw
-
-RUN ./mvnw package
+RUN ./mvnw clean package
 
 CMD ["java", "-jar", "target/fwave-0.0.1-SNAPSHOT.war"]
 
